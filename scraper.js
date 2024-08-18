@@ -9,29 +9,36 @@ import puppeteer from 'puppeteer';
   
     // Navigate the page to a URL
     await page.goto('https://pluto.tv/latam/on-demand');
-    //await page.setViewport({width: 1720, height: 1084});
+    await page.setViewport({width: 1920, height: 1080});
 
     //Loops through the category
-    var data
-    for (let i = 1; i < 20; i++) {
-        //await page.locator(`ul li:nth-child(${i}) a`).click();
-        await page.locator(`ul.categoryList > li:nth-child(${i}) a`).click();
+    for (let i = 1; i < 100; i++) {
+        await page.locator(`ul.categoryList > li:nth-child(${i}) a img`).filter(a => a.classList == "").click()
         const content = await page.evaluate(() =>
             {
-            const title = document.querySelector('meta[name="description"]').content
-            const duration = document.querySelector("div.inner > div> ul > li:nth-child(5)").innerHTML 
-            const url = document.URL
-            return category = {
-                'title':title,
-                'duration':duration,
-                'url':url
-                 }
+                
+                const title = document.querySelector('meta[name="description"]').content
+                // const duration = document.querySelector("div.inner > div> ul > li:nth-child(5)").innerHTML 
+                const url = document.URL
+                return category = 
+                    {
+                        'title':title,
+                        // 'duration':duration,
+                        'url':url
+                    }
             })
-            asdasdasd
-         
+        
           console.log(content)
-            
-          await page.locator('svg').click();
+        
+        await page.keyboard.press('Escape')
+          
+        await page.keyboard.press('ArrowDown')
+          
+        
+
+
+          
+
       }
 
   })();
