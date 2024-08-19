@@ -1,8 +1,9 @@
 import puppeteer from 'puppeteer'
 import fs from 'fs'
-import { scrape_content } from './util.js'
+import { scrape_content } from './on_demand_util.js'
 
 const scraper_starter = async () => {
+    console.time()
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({
         headless: false
@@ -51,7 +52,7 @@ const scraper_starter = async () => {
         }
         
         await page.keyboard.press('Escape')
-        await new Promise(r => setTimeout(r, 200))
+        await new Promise(r => setTimeout(r, 300))
         await page.keyboard.press('Tab')
 
         // await new Promise(r => setTimeout(r, 400))
@@ -59,6 +60,7 @@ const scraper_starter = async () => {
 
     console.log(scraped)
     fs.writeFileSync('on_demand_scraped.json', JSON.stringify([...scraped], null, 2))
+    console.timeEnd()
 }
 
 scraper_starter()
