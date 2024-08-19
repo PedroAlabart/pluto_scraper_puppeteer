@@ -1,7 +1,8 @@
 import puppeteer from 'puppeteer'
 import fs from 'fs'
+import { scrape_content } from './util.js'
 
-const scraper = async () => {
+const scraper_starter = async () => {
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch({
         headless: false
@@ -16,20 +17,13 @@ const scraper = async () => {
 
     let scraped = new Set()
 
-    const content = await page.evaluate(() => {
-        const title = document.querySelector('meta[name="description"]').content
-        // const duration = document.querySelector("div.inner > div> ul > li:nth-child(5)").innerHTML
-        const url = document.URL
-        return {
-            'title': title,
-            // 'duration': duration,
-            'url': url
-        }
-    })
+    
+    const initialContent = await scrape_content(page)
+    if (initialContent) {
+        scraped.add(initialContent)
+    }
 
-    scraped.add(content)
-
-    for (let i = 0; i < 10; i++){
+    for (let i = 0; i < 20; i++){
         const is_media = await page.evaluate(() => {
             const activeElement = document.activeElement
             
@@ -50,18 +44,10 @@ const scraper = async () => {
         }
         if (is_media) {
             await page.keyboard.press('Enter')
-            const content = await page.evaluate(() => {
-                const title = document.querySelector('meta[name="description"]').content
-                // const duration = document.querySelector("div.inner > div> ul > li:nth-child(5)").innerHTML
-                const url = document.URL
-                return {
-                    'title': title,
-                    // 'duration': duration,
-                    'url': url
-                }
-            })
-        
-            scraped.add(content)
+            const initialContent = await scrape_content(page)
+            if (initialContent) {
+                scraped.add(initialContent)
+            }
         }
         
         await page.keyboard.press('Escape')
@@ -75,4 +61,4 @@ const scraper = async () => {
     fs.writeFileSync('on_demand_scraped.json', JSON.stringify([...scraped], null, 2))
 }
 
-scraper()
+scraper_starter()
