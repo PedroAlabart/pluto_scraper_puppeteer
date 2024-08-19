@@ -13,14 +13,13 @@ const scraper = async () =>
     await page.goto('https://pluto.tv/latam/on-demand');
     await page.setViewport({width: 1920, height: 1080});
 
-    // await page.waitForSelector('ul > li a'); // Espera a que los enlaces estén en el DOM
 
-    await page.locator(`ul.categoryList > li:nth-child(1) a img`).filter(a => a.classList == "").click()
+    await page.locator(`ul.categoryList > li a img`).filter(a => a.classList == "").click()
 
 
-  let array = []
+  let scraped = new Set()
 
-  for (let i = 0; i < 10; i++)
+  for (let i = 0; i < 20; i++)
     { 
         const is_media = await page.evaluate(() => {
             const activeElement = document.activeElement
@@ -48,18 +47,19 @@ const scraper = async () =>
                     
             })
     
-    array.push(content)
+    scraped.add(content)
     }
+    
     await page.keyboard.press('Escape')
     await new Promise(r => setTimeout(r, 200));
 
     
     await page.keyboard.press('Tab')
 
-    await new Promise(r => setTimeout(r, 400));
+    // await new Promise(r => setTimeout(r, 400));
     }
-
-    fs.writeFileSync('on_demand_scraped.json', JSON.stringify(array, null, 2))
+    console.log(scraped)
+    fs.writeFileSync('on_demand_scraped.json', JSON.stringify([...scraped],null, 2))
 
 }
 
