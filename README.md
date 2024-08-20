@@ -15,8 +15,13 @@ Pluto TV is a streaming television service that offers a wide variety of series,
 - The scraped data will be saved under two json files:
   - `live_tv.json`
   - `on_demand_scraped.json`
-## General Notes
+
+## Efficency Information
 ![Scraping time and Number of Records](img\scraping_timer.png)
+
+- Live TV - Scraping Time: 14.205s (ss.mmm) / Channels Scraped:  80
+- On Demand - Scraping Time: 7:48.754 (m:ss.mmm) / Media Scraped:  965
+## General Notes
 
 
 - The scraping time and the number of records retrieved varied between runs. This variation could be due to my internet connection and the speed at which the dynamic content loads.
