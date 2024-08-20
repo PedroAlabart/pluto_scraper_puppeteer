@@ -14,9 +14,11 @@ Pluto TV is a streaming television service that offers a wide variety of series,
   - `node main.js on_demand`
 
 ## General Notes
+![Scraping time and Number of Records](img\scraping_timer.png)
+
 
 - The scraping time and the number of records retrieved varied between runs. This variation could be due to my internet connection and the speed at which the dynamic content loads.
-- Their Terms of Service state that scraping their content is illegal.
+- Pluto's Terms of Service state that scraping their content is illegal.
 - The running time and the number of scraped records fluctuate significantly between runs.
 
 ## Data Scraped for On-Demand Content
@@ -36,3 +38,5 @@ Pluto TV is a streaming television service that offers a wide variety of series,
 
 - Further modularize the code.
 - Fix the duration for series, as it's currently returning 0 seasons for every record.
+- Redo `on_demand_scraper.js`. I began by creating the script for this section, but by the time I finished the second script, I had gained a lot of knowledge about things I could have done differently.
+
