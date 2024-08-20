@@ -2,6 +2,7 @@
 
 Pluto TV is a streaming television service that offers a wide variety of series, movies, and diverse channels.
 
+The purpose of this repository is to scrape information from their website.
 ## Steps to run
 
 - Install Node.js
@@ -16,16 +17,18 @@ Pluto TV is a streaming television service that offers a wide variety of series,
   - `live_tv.json`
   - `on_demand_scraped.json`
 
+## Main Files
+- `main.js`: Contains a function to run the two files below.
+- `live_tv_scraper.js`: Contains the script for scraping the Live TV section of Pluto.
+- `on_demand_scraper.js`: Contains the script for scraping the On Demand section of Pluto.
+
 ## Efficency Information
 ![Scraping time and Number of Records](https://github.com/PedroAlabart/pluto_scraper_puppeteer/blob/main/img/scraping_timer.png?raw=true)
 
 - Live TV - Scraping Time: 14.205s (ss.mmm) / Channels Scraped:  80
 - On Demand - Scraping Time: 7:48.754 (m:ss.mmm) / Media Scraped:  965
 
-## Main Files
-- `main.js`: Contains a function to run the two files below.
-- `live_tv_scraper.js`: Contains the script to scrape the Live TV section of Pluto.
-- `on_demand_scraper.js`: Contains the script to scrape the On Demand section of Pluto.
+
 ## General Notes
 
 
