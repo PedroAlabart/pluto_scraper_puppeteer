@@ -3,7 +3,7 @@ import fs from 'fs'
 
 const timer = "Live TV - Scraping Time"
 
-const scraper_starter = async () => {
+export async function live_tv_scraper_starter() {
   console.time(timer)
 
     const browser = await puppeteer.launch({ headless: false })  
@@ -31,12 +31,8 @@ const scraper_starter = async () => {
         try {
           //Consigue el link
           const href = `https://pluto.tv/latam${await page.evaluate(el => el.getAttribute('href'), element)}`
-          const name = "hi"//await page.evaluate(el => el.getAttribute('aria-label'), element)
-          const dict = {
-            'name': name,
-            'href': href
-          }
-          elementsSet.add(dict)
+          const name = await page.evaluate(el => el.children[1].getAttribute('aria-label'), element)
+          elementsSet.add(name)
 
           
         } catch (error) {
@@ -51,5 +47,4 @@ const scraper_starter = async () => {
     console.timeEnd(timer)
     console.log("Channels Scraped: ", elementsSet.size)
 }
-scraper_starter()
 
