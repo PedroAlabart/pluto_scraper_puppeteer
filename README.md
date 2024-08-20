@@ -33,7 +33,7 @@ The purpose of this repository is to scrape information from their website.
 
 
 - The scraping time and the number of records retrieved varied between runs. This variation could be due to my internet connection and the speed at which the dynamic content loads.
-- Pluto's Terms of Service state that scraping their content is illegal.
+- Scraping Pluto's website is against their ToS.
 - The running time and the number of scraped records fluctuate significantly between runs.
 
 ## Data Scraped for the On-Demand section
