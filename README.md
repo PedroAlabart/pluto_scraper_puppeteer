@@ -17,7 +17,7 @@ Pluto TV is a streaming television service that offers a wide variety of series,
   - `on_demand_scraped.json`
 
 ## Efficency Information
-![Scraping time and Number of Records](.img\scraping_timer.png)
+![Scraping time and Number of Records](https://github.com/PedroAlabart/pluto_scraper_puppeteer/blob/main/img/scraping_timer.png?raw=true)
 
 - Live TV - Scraping Time: 14.205s (ss.mmm) / Channels Scraped:  80
 - On Demand - Scraping Time: 7:48.754 (m:ss.mmm) / Media Scraped:  965
