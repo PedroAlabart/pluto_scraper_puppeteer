@@ -42,7 +42,7 @@ export async function live_tv_scraper_starter() {
       }
     }
 
-    fs.writeFileSync('live_tv.json', JSON.stringify([...elementsSet], null, 2))
+    fs.writeFileSync('live_tv_scraped.json', JSON.stringify([...elementsSet], null, 2))
 
     console.timeEnd(timer)
     console.log("Channels Scraped: ", elementsSet.size)

@@ -2,7 +2,7 @@
 
 Pluto TV is a streaming television service that offers a wide variety of series, movies, and diverse channels.
 
-## Requirements
+## Steps
 
 - Install Node.js
 - Install Puppeteer:
@@ -12,7 +12,9 @@ Pluto TV is a streaming television service that offers a wide variety of series,
 - To run only one of them scrapers:
   - `node main.js live`
   - `node main.js on_demand`
-
+- The scraped data will be saved under two json files:
+  - `live_tv.json`
+  - `on_demand_scraped.json`
 ## General Notes
 ![Scraping time and Number of Records](img\scraping_timer.png)
 
@@ -21,7 +23,7 @@ Pluto TV is a streaming television service that offers a wide variety of series,
 - Pluto's Terms of Service state that scraping their content is illegal.
 - The running time and the number of scraped records fluctuate significantly between runs.
 
-## Data Scraped for On-Demand Content
+## Data Scraped for the On-Demand section
 
 - **Title**
 - **URL**
@@ -30,7 +32,7 @@ Pluto TV is a streaming television service that offers a wide variety of series,
 - **Synopsis**
 - **Duration**
 
-## Data Scraped for Live TV
+## Data Scraped for the Live TV section
 
 - **Channel Name**
 
@@ -38,5 +40,5 @@ Pluto TV is a streaming television service that offers a wide variety of series,
 
 - Further modularize the code.
 - Fix the duration for series, as it's currently returning 0 seasons for every record.
-- Redo `on_demand_scraper.js`. I began by creating the script for this section, but by the time I finished the second script, I had gained a lot of knowledge about things I could have done differently.
+- Redo `on_demand_scraper.js`. I started this project by creating this script, but by the time I finished `live_tv_scraper.js`, I had gained a lot of knowledge about things I could have done differently on the former.
 

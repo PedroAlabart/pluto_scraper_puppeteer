@@ -30,10 +30,8 @@ export async function on_demand_scraper_starter(){
         const is_media = await page.evaluate(() => {
             const activeElement = document.activeElement
             
-            // Verificar si el elemento activo tiene hijos
             const firstChild = activeElement.firstElementChild
             
-            // Si el primer hijo existe y es una imagen
             return firstChild && firstChild.tagName === "IMG"
         })
 
